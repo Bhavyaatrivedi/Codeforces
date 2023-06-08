@@ -1,0 +1,39 @@
+
+#include <iostream>
+
+int main() {
+   
+   int t;
+   cin>>t;
+   while(t--){
+       int n;
+       cin>>n;
+       vector<int> v(n);
+       
+       for(int i=0;i<n;i++){
+           cin>>v[i];
+       }
+       
+       vector<int> res;
+       for(int i=0;i<n-1;i++){
+           int val= v[i]-v[i-1];
+           if(val !=0){
+               if(res.size()>0){
+                   int x= res.back();
+                   if(x>0 && val<0){
+                       res.push_back(val);
+                   }
+                   else if(x<0 && val>0){
+                       res.push_back(val);
+                   }
+               }
+               else{
+                   res.push_back(val);
+               }
+           }
+       }
+       cout<< (1+ res.size())<<endl;
+   }
+}
+
+
