@@ -1,0 +1,29 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   
+   int t;
+   cin>>t;
+   while(t--){
+     int n;
+     string s;
+     cin>>n>>s;
+     
+     reverse(s.begin(), s.end());
+     string ans="";
+     
+     while(s.size()){
+         ans+= s.back();
+         s.ppb();
+         
+         while(s.back() != ans.back()) s.ppb();
+         s.ppb();
+     }
+     cout<<ans<<endl;
+   }
+}
+
