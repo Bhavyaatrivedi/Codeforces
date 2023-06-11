@@ -1,0 +1,45 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   vector<ll> bit_count(19,0);
+   vector<vector<ll>> bit_map(2000001);
+   
+   for(ll i=0;i<=18;i++){
+       bit_map[0].push_back(0);
+   }
+   for(ll=1;i<=200000;i++){
+       ll pos=0, temp=i;
+       while(temp){
+           if(temp&1){
+               bit_count[pos]++;
+           }
+           temp>>=1;
+           pos++;
+       }
+       if(ll j=0;j<=18;j++){
+           bit_map[i].push_back[bit_count[j]];
+       }
+   }
+   ll t;
+   cin>>t;
+   while(t--){
+       ll r,l;
+       cin>>r,l;
+       ll tot= abs(r-l)+1;
+       ll mini= LONG_MAX;
+       
+       for(ll bits=0; bits<=18;bits++){
+           ll set_bits=0;
+           set_bits= bit_map[r][bits]- bit_map[l-1][bits];
+           ll mini_temp= tot- set_bits;
+           mini= min(mini, mini_temp);
+       }
+       cout<<mini<<endl;
+   }
+   
+   }
+}
