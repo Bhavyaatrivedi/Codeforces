@@ -1,0 +1,31 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   ll t;
+   cin>>t;
+   while(t--){
+     int n;
+     cin>>n;
+     int a[n];
+     
+     for(int i=0;i<n;i++){
+        cin>>a[i];
+        while(a[i] >n) a[i]/=2;
+        freq[a[i]]++;
+     }
+     
+     bool flag= false;
+     for(int i=n;i>=0;i--){
+        if(freq[a[i]]==0) flag=false;
+        freq[i/2]+= freq[i]-1;
+     }
+     if(flag) cout<<"Yes"<<endl;
+     cout<<"No""<<endl;
+   }
+   return 0;
+   
+}
