@@ -1,0 +1,56 @@
+void asquare()
+{
+    ll n;
+    cin>>n;
+    vector<ll>a[n+1];
+    vector<pair<ll,ll>> vv(n-1);
+    fl(i,n-1)
+    {
+        ll u,v;
+        cin>>u>>v;
+        if(u<v){vv[i].ff=u;vv[i].ss=v;}
+        else {vv[i].ff=v;vv[i].ss=u;}
+        a[u].pb(v);
+        a[v].pb(u);
+    }
+    if(n==2){cout<<"2\n";return;}
+    ll start=0,nextt;
+    fl(i,n)
+    {
+        if(a[i+1].size()==1)
+        start=i+1;
+        if(a[i+1].size()>2)
+        {cout<<"-1\n"; return;}
+    }
+    nextt=a[start][0];
+    map<pair<ll,ll>,ll>mpp;
+    ll in=2;
+    fl(i,n-1)
+    {
+        mpp[{start,nextt}]=in;
+        mpp[{nextt,start}]=in;
+        if(i!=n-1)
+        {
+            ll temp=nextt;
+            if(a[nextt][0]!=start)nextt=a[nextt][0];
+            else nextt=a[nextt][1];
+            start=temp;
+        }
+        if(in==2)in=5;
+        else in=2;
+    }
+    fl(i,n-1)cout<<mpp[vv[i]]<<" ";
+    cout<<"\n";
+}
+int main()
+{
+    Code By Asquare
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        asquare();
+    }
+    // asquare();
+    return 0;
+}
