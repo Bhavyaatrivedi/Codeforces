@@ -1,0 +1,39 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n;
+      cin>>n;
+     
+      int a[n];
+     
+      for(int i=0;i<n;i++){
+        cin>>a[i];
+      }
+
+      int cnt=0, steps=0;
+      int x= a[n-1];
+      int i=n-1;
+
+      while(i>=0){
+          if(a[i] == x && i>=0){
+              cnt++, i--;
+          }
+          if(i<0) break;
+
+          steps++;
+          i-=cnt;
+          cnt= cnt*2;
+      }
+     
+      cout<<steps<<endl;
+   }
+   
+   return 0;
+}
