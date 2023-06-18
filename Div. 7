@@ -1,0 +1,42 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n;
+      cin>>n;
+
+      if(n%7 ==0){
+          cout<<n<<endl;
+          continue;
+      }
+      int o=n, flag=0;
+      int rem= n%10;
+      int k= 9-rem;
+
+      while(k--){
+          n++;
+          if(n%7==0){
+              flag=1;
+              break;
+          }
+      }
+     
+     if(flag ){
+         cout<<n<<endl;
+         continue;
+     }
+     while(rem--){
+         o--;
+         if(o %7==0) break;
+     }
+      cout<<o<<endl;
+   }
+   
+   return 0;
+}
