@@ -1,0 +1,41 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n;
+      cin>>n;
+     
+      int i=0;
+      vector<int> v;
+      for(int i=0;i<n;i++){
+          v.push_back(i);
+      }
+
+      reverse(v.begin(), v.end());
+
+      for(auto it:v){
+          cout<<it<<" ";
+          cout<<endl;
+      }
+      n--;
+
+      while(n--){
+          swap(v[i], v[i+1]);
+
+          for(auto it:v){
+          cout<<it<<" ";
+          cout<<endl;
+       }
+       swap(v[i], v[i+1]);
+       i++;
+      }
+   }
+   
+   return 0;
+}
