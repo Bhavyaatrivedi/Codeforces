@@ -1,0 +1,37 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      string s;
+      cin>>s;
+
+      map<char, bool> mp;
+      bool ans= false;
+
+      mp['r']= false;
+       mp['g']= false;
+     mp['b']= false;
+
+     for(int i=0;i<;i++){
+         if(s[i]>'Z' && mp[s[i] - 'A' + 'a']==false){
+             ans= false;
+             break;
+         }
+
+         else if(s[i] > 'a'){
+             mp[s[i]]= true;
+         }
+     }
+
+     if(ans) cout<<"No"<<endl;
+     else cout<<"Yes"<<endl;
+   }
+   
+   return 0;
+}
