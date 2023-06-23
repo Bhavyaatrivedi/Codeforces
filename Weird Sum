@@ -1,0 +1,56 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+bool cmp(pair<int,int> &p1, pair<int,int> &p2){
+    return p1.second<p2.second;
+}
+
+
+signed  main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t=1;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+
+        map<int, vector<pair<int,int> > >mp;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                int x;
+                cin>>x;
+                mp[x].push_back({i,j});
+            }
+        }
+
+        int ans=0;
+        for(auto it: mp){
+            vector<pair<int,int>> v= it.second;
+            sort(v.begin(), v.end());
+            int sum=0;
+
+            for(int i=0; i<v.size(); i++) sum+= v[i].first;
+            for(int i=0; i<v.size(); i++){
+                sum-= v[i].first;
+                ans+= (sum - ((v.size()-1-i)*v[i].first));
+            }
+
+            sort(v.begin(), v.end(), cmp);
+            sum=0;
+
+            for(int i=0; i<v.size(); i++) sum+= v[i].second;
+            for(int i=0; i<v.size(); i++){
+                sum-= v[i].second;
+                ans+= (sum -((v.size()-1-i)*v[i].second));
+            }
+        }
+        cout<<ans<<endl;
+    }
+   
+   return 0;
+}
