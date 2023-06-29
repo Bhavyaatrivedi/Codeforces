@@ -1,0 +1,41 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n;
+      cin>>n;
+     
+      int a[n];
+      
+      for(int i=0;i<n;i++){
+        cin>>a[i];
+      }
+      
+      bool flag= false, hasOne= false;
+
+      for(int i=0; i<n; i++){
+          if(a[i] == 1) hasOne=true;
+      }
+
+      if(!hasOne){
+          cout<<"Yes"<<endl;
+      }
+      else{
+          sort(a, a+n);
+          if(a[i+1]- a[i] ==1){
+              fals= true;
+              break;
+          }
+      }
+      if(flag) cout<<"No"<<endl;
+      else cout<<"Yes"<<endl;
+   }
+   
+   return 0;
+}
