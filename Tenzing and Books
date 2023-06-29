@@ -1,0 +1,44 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+bool Valid(int p){
+    for(int i=0; i<32; i++){
+        if((p>>i) & 1){
+            if(! (x>>i) &1) return false;
+        }
+    }
+    return true;
+}
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n,x;
+      cin>>n,x;
+     
+      vector<int> v(3, n);
+      for(int i=0; i<3; i++){
+          cin>>v[i];
+      }
+
+      int ans=0;
+
+      for(int i=0; i<32; i++){
+          int take =0;
+          for(int j=0; j<n; j++){
+              if(Valid(v[i][j])){
+                  take |= v[i][j];
+              }
+              else break;
+          }
+          ans| = take;
+      }
+      if(ans == x) cout<<"Yes";
+      else cout<<"No";
+   }
+   
+   return 0;
+}
