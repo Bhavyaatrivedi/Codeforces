@@ -9,7 +9,7 @@ signed  main() {
    cin>>t;
    while(t--){
       int n,k;
-      cin>>n,k;
+      cin>>n>>k;
      
       int a[n];
       int ans=0;
