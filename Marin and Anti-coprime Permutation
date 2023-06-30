@@ -1,0 +1,32 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int mod = 998244353
+
+    vector<int> fact(1001, 1);
+    for(int i=1; i<1000; i++){
+        fact[i]= (fact[i-1]*i)%mod;
+    }
+    int t=1;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+
+        if(n%2) cout<<"No"<<endl;
+       
+        else{
+            cout<<(fact[n/2] * fact[n/2]) % mod<<endl
+        }
+    }
+   
+   return 0;
+}
