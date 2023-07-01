@@ -1,0 +1,41 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n,x;
+      cin>>n;
+     
+      map<int,int> mp;
+      int maxa=INT_MIN;
+      for(int i=0;i<n;i++){
+        cin>>x;
+        mp[x]++;
+        maxa= max(maxa, m[x]);
+      }
+
+      if(maxa == n) cout<<0<<endl;
+
+      else{
+          int cnt=1;
+          while(maxa<=n){
+              if(maxa+ maxa >=n){
+                  cnt+= (n-maxa);
+                  break;
+              }
+              cnt+= maxa;
+              maxa*=2;
+              cnt++;
+          }
+          cout<<cnt<<endl;
+      }
+      
+   }
+   
+   return 0;
+}
