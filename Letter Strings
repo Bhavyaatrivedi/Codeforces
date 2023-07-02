@@ -1,0 +1,34 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n;
+      cin>>n;
+     
+      int v[n];
+      
+      for(int i=0;i<n;i++){
+        cin>>v[i];
+      }
+
+      int ans=0;
+      map<char, int> st, fin;
+      map<string, int> s;
+      
+      for(int i=0; i<n; i++){
+          ans+= (st[v[i][0]] + fin[v[i][1]]) - 2*s[v[i]];
+          st[v[i][0]]++;
+          fin[v[i][1]]++;
+          s[v[i]]++;
+      }
+      cout<<ans<<endl;
+   }
+   
+   return 0;
+}
