@@ -1,0 +1,28 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+
+
+signed  main() {
+   int t;
+   cin>>t;
+   while(t--){
+      int n,m;
+      cin>>n>>m;
+     
+     if(n==1 && m>2 || m==1 && n>2){
+         cout<<-1<<endl;
+     }
+
+     else{
+         int ans= 2* min(m,n) -2;
+         ans+= 2*( max(m,n)- min(m,n));
+         if((max(m,n)- min(m,n))%2) ans--;
+         cout<<ans<<endl;
+     }
+      
+   }
+   
+   return 0;
+}
